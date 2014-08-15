@@ -1,0 +1,277 @@
+Last update: 5 January 1998
+Illya Vaes
+Martin Luther Kingstate 23
+6716 NA Ede
+The Netherlands
+ivaes@hr.nl (work; this was/is a free time project)
+
+Welcome to Tcl 7.5/Tk 4.1 for OS/2 PM.
+
+Installation:
+Unzip the archive, making sure directories are preserved (PKzip needs -d).
+As long as the binaries (tclsh75.exe and wish41.exe) are started in the
+\TclTk\bin directory, you don't need to do anything else. If you want to be
+able to start them from anywhere, you have to put the directory in your path
+or put the executables in a directory that already is in your PATH (and the
+DLLs in your LIBPATH).
+In such a case, it becomes quite likely that Tcl will not be able to find out
+the location of its library by itself, so you're recommended to add environment
+variables for those to you CONFIG.SYS (if you want them to persist, that is),
+e.g. SET TCL_LIBRARY=E:/TclTk/lib/tcl and TK_LIBRARY=E:/TclTk/lib/tk.
+Paths in Tcl/Tk use _forward_ slashes, in this port too! You can change to a
+different drive (and, if you like to a different directory there at the same
+time) by saying e.g. "cd e:/tk4.1/os2".
+
+This port has been compiled with EMX 0.9b, and requires its EMXLIBCM.DLL and
+EMX.DLL (or those of a higher version). Kudos to Eberhard Mattes for EMX.
+
+Compiling:
+To compile the source yourself, you need the Tcl and Tk source from Sun.
+After extracting it (gzip -c -d tcl7.5.tar.gz | tar xvf -) on your drive,
+unzip the source-zip of Tcl/Tk for OS/2 on the same drive, go to tcl7.5\os2
+and execute 'gmake -f makefile.emx'. You might want to use lxlite on generated
+executables.
+Obviously, you need gzip, tar, unzip and gmake for this, as well as EMX.
+Also, RC.EXE of IBM's VisualAge C++ 3.0 was used.
+
+
+NOTES
+=====
+- When you are in Tclsh, you can say "load <full-path-to-tk41.dll>" and you
+  have gotten all of Tk at your disposal (without wish's console).
+  Eg. "load E:/TclTk/bin/tk41.dll".
+- Because of difference in fonts and such, layout of scripts may turn out wrong.
+  This includes the test script hscale.tcl for instance, where the arrow that
+  follows the scale starts further to the left than the scale. Changing the
+  "-wraplength" option to the label $w.msg from 3.5i to 300 makes it (approx.)
+  correct.
+Programs that are known to run (with or without minor modification)
+-------------------------------------------------------------------
+Some apps seem to get into an infinite loop upon closing the main window with
+double clicking the window menu button (the icon topleft). At least Paradigm
+Visual Make does this. Visual Tcl and XF correctly intercept the
+WM_DELETE_WINDOW and/ort other WM_PROTOCOLS.
+- Paradigm Visual Make (pvm_12).
+  Needs to have the testing for the platform to be augmented with OS/2, with
+  the same actions as for Windows.
+- Visual Tcl 1.08
+  A smaller font must be specified to get the texts to show in their entirety
+  in the "Geometry Information" dialog, eg {8.Helv}.
+- XF 4.0pl1.
+  Needs to have "exec command.com..." changed to "exec cmd.exe" in
+  src/xfglobals.tcl and src/xfmisc.tcl (failure to do this will crash the
+  program), and the scripts xfhardcopy/xfhardcopy.tcl and
+  xfappdef/xfappdef.tcl need to have their wish modified to wish41.exe.
+
+
+HISTORICAL CHANGES
+==================
+
+Fix 1
+-----
+- Opening files for appending truncated them. Fixed.
+- Bitmaps got reversed (again). XCopyPlane has to do the colours "reversed"
+  like the Windows port, contrary to what the PM Guide and Reference states.
+
+Release
+-------
+- Execs (usually with pretty much output) gave an OS/2 error message that the
+  process tried to write to a non-existent pipe. Fixed by not using a named
+  pipe but an unnamed pipe.
+- The socket code works.
+- The Tclsh console tries its best to add all output to the end, no matter
+  where the cursor happens to be.
+  Insert output from commands with MLM_IMPORT instead of via the clipboard,
+  thereby not being limited to 64K.
+  Control-C can be used to (try to) break off a script (like is necessary to
+  regain control in the test-script remote.tcl).
+- Traced a (not-so) subtle bug in TclSetSystemEnv that reared its ugly head
+  later, by running Visual Tcl 1.08 (malloc-ing space for VARIABLE=VARIABLE
+  instead of VARIABLE=VALUE, for a lengthy value, ergo using memory that wasn't
+  malloc-ed). Stoooopid.
+- Use of the command processor in environment variable COMSPEC instead of
+  always using CMD for things not in the path (ie. likely internal commands
+  like DIR). Still uses CMD.EXE when this can't be determined.
+- Array subscripts in determining system values were one off, rendering OS/2
+  Warp 4 as major version 4, minor version 0, revision <some-number> instead
+  of the (documented) required 20, 40 and 0. Fixed, but "hacked" in the same
+  way as CMD.EXE, ie. returning version 4.0 for 20.40.0.
+- Globbing was broken for non-current directory searches.
+  It accepts volume-relative specs like "e:*.tk" and fills in the current
+  directory on the drive between the ':' and '*'.
+  It now also determines case (in)sensitivity and case (non)preservation from
+  the file system that the directory resides on. FAT, VINES and anything it
+  doesn't recognize are taken to be insensitive and non-preserving. NFS and
+  EXT2FS (Linux) are taken to be sensitive and preserving, HPFS and NTFS
+  insensitive and preserving.
+- Fixed "put" with a channelId in the Tclsh console.
+- Flashing of a new window in the corner (being displayed there and then
+  immediately moved) fixed. Was caused by a superfluous WS_VISIBLE in the
+  Window Style). By default windows start in upper left corner.
+- Overzealous looking at VK_ALTGRAF in tkOS2X.c removed. This caused any key
+  pressed with Alt Gr (German, Dutch keyboards) to be ignored.
+- First code for a CLI (Command Line Interface) version of tclsh put in, but
+  not pursued further. #ifdef-ed with CLI_VERSION.
+
+Beta 5 - 11 sept.1997
+------
+- Unlike the Windows port ;-), the functionality of stippling for ARCs is
+  implemented.
+- Fixed inconsistency and typo in tkOS2Pointer.c wrt. Y coordinate lastMousePos.
+- The format of $tcl_platform(os) has been modified again to make them more
+  logical though now the array elements for platform and OS return the same,
+  ie. "OS/2"; Other values: osVersion e.g. "4.0", machine "intel".
+  Similarly, "winfo server ." returns e.g. "OS/2 4.0".
+  No marketing names (Warp) allowed here...
+- Menus appear at the correct height (aligned with bottom of button).
+- Binding to ALT works. NB: A binding is case-sensitive: Control-Shift-x will
+  not match anything while Control-Shift-X will. The latter is equivalent to
+  Control-X, since you will only get X (not x) by pressing Shift.
+- Withdrawn windows completely disappear, ie. from the task list.
+- Stippling works (apart from stippled ARCs, which don't get stippled in the
+  Windows port either).
+- Windows port did not look at GC values for CapStyle, JoinStyle, LineStyle.
+  This port does.
+- Lines have (specified) width. This needs the "geometric line width" in OS/2,
+  which is only used by GpiStrokePath (and GpiModifyPath), so use that.
+- Ctrl-X and the likes work.
+- Focus problem after grab fixed. I was too correct in following the "Results"
+  section for XGrabPointer, which says to return AlreadyGrabbed if the grab
+  didn't succeed. This should be ignored, like in the Windows version, and
+  GrabSuccess should always be returned.
+(Font patch by Ilya Zakharevich assimilated)
+- Fonts (sigh ;-}): calculation of size was wrong.
+  Furthermore, because of unclear / confusing GPI programming info, the check
+  of the sizes of the available fonts wasn't done on the right value. It turns
+  out you have to *request* the size via the lMaxBaselineExt member, while the
+  actually used value is in lEmHeight.
+  Am I dense or what?? Actually, the returned nominal pointsize is OK.
+  Compile-time option (via #define) provided for ignoring a PM-provided font
+  resolution of 120dpi, taking 96dpi instead, which is the resolution in VGA
+  and upto ?800x600?; requested by Ilya Zakharevich.
+- Color images now work, including those that get split up into several before
+  drawing (LCOLF_RGB instead of LCOLF_CONSECRGB in GpiCreateLogColorTable;
+  LCOLF_CONSECRGB should (only) be used with Palette Manager).
+- Width calculation of fonts improved by using TXTBOX_BOTTOMRIGHT instead of
+  TXTBOX_CONCAT.
+- Tcl: File globbing was broken because DosQueryPathInfo doesn't like ".\" for
+  the file/directory argument. Similarly, directories weren't seen.
+- "option readfile" wasn't succesful with OS/2 files, but was with an .Xdefaults
+  copied from Linux. Choked on the Return&Newline being replaced by just the
+  Newline, yielding a "nr.of chars read" smaller than the file size, aborting
+  the entire process. Fix necessitated changing the generic file tkOption.c,
+  function ReadOptionFile with the corresponding (fixed) code of Tk 4.2.
+- Compile time option (set in makefile.emx) to use "9.WarpSans" as default
+  font.
+
+Beta 4
+------
+- A "wm withdraw" now also works when running or sourcing a script (i.e.
+  mapping/creating in withdrawn state).
+  Switching to a withdrawn window (eg. by using the task list) works okay.
+  Previously only a "wm deiconify" would do the trick of exposing the client
+  area (restoring contents).
+- Resizing in vertical direction fixed.
+  When resizing to a smaller height with a menu bar involved, the menu bar
+  disappeared (partly or entirely, depending on the size).
+  Cause was the use of CS_SIZEREDRAW for child windows.
+- The default screen name is determined from the DISPLAY environment variable,
+  if available, so scripts asking for toplevels with -screen <name> don't
+  abort (and any toplevels without specifying a screen in an invocation of
+  wish with the -screen <name> argument).
+- Double-clicking now works correctly, OS/2 PM's WM_BUTTONxDBLCLK messages get
+  changed to both a ButtonDown and a ButtonUp event.
+- Fonts changed again. Presentation Parameter-style specification now fully
+  supported:  PointSize.FontName[.Attribute][.Attribute]... where Attribute is
+  one of bold, italic, outline, strikeout, underline.
+  Some fonts (eg. -*-Helvetica-Bold-R-Normal-*-240-*-*-*-*-*-*) didn't show up.
+  This was because they were scaled to pointsize 0 because the 240 is in the
+  "pixels" spot, which should be a substitute for the point size (or at least
+  was in the Windows version), but wasn't implemented identically. An explicit
+  point size will override it.
+  The ascenders and descenders of scalable fonts are fixed, so they won't get
+  progressively larger when enlarging the font.
+- Double ckfree because of WM_DESTROY message (caused by WinDestroyWindow in
+  XDestroyWindow, tkOS2Window.c) fixed, care of sleuthing by Ilya Zakharevich.
+- Resizing works, wm minsize and wm maxsize likewise.
+
+Beta 3
+------
+- Merged resources for additional pointers into the DLL.
+- Clicking in the console gets the focus now too (previously, only clicking the
+  titlebar worked).
+- Fonts work a little bit more correct. ;-)  Height, width and actually used
+  pointsize are correct now. Without special handling, every scalable font is
+  of point size 12!
+  Code by Ilya Zakharevich (ilya@math.ohio-state.edu) incorporated into
+  tkOS2Font.c, enabling the use of e.g. "10.Courier".
+- Images work. Funnily, they are (exquisite) greyscale on a 64K display but
+  color on a 256 palette management. The OS/2 part is doing what Tk tells it
+  to with regard to color though, it just gets handed grey values, so I have to
+  assume it is working as advertised.
+- 'exec' was broken in Beta 2. Fixed. PM apps should be exec-ed with '&' unless
+  they are very short-lived. Tclsh will be "listening" for output from the app
+  and this will "lock up the queue" because of the single-threadedness.
+- The format of $tcl_platform(os) has been modified slightly; return values are
+  now "Warp 3" and "Warp 4" instead of "Warp v3" and "Warp 4 (Merlin)".
+  Other values: platform "OS/2", osVersion e.g. "4.0", machine "intel".
+- Temporary files are cleaned up when closed by specifying a DosClose wrapper
+  to be called on file closure.
+- Humongous memory leak in TkOS2SelectPalette fixed.
+
+Beta 2
+------
+- Font selection works correctly now, so that any font available through the
+  font dialog is available. It first determines all fonts in the system (#ifdef
+  DEBUG) / all fonts with the specified facename (#ifndef DEBUG) via
+  GpiQueryFonts and then determines the most suitable font based on the
+  size. Preference is given to bitmap fonts over outline (scalable) fonts for
+  purposes of performance in using the font. When many fonts of the same
+  facename exist, the scalable one is at the start of the "list" and the
+  correctly sized bitmap font is at the end of the "list", this may exact a
+  performance penalty at the time of determining the font. This is a small
+  one-time penalty though.
+  Fonts with a '-' in their name have to be specified by length-3-array (eg.
+  "Conga-Normal 180 normal").
+  To not get stuck with a default font (ie Courier), you will need to use font
+  names that OS/2 knows *and* use the right case:
+  helvetica      ->   Helvetica   or   Helv
+  Times          ->   Times New Roman   or   Tms Rmn
+  (eg: ... -font "-Adobe-Times New Roman-medium-r-normal-*-180-*-*-*-*-*-*" )
+- Colors on non-Palette management system work. Not tested on VGA but you will
+  not get any better there...
+- Choosing "Close" (Alt-F4) on a torn-off menu or otherwise non-"main" window
+  will only close that particular window, not the whole application.
+
+Beta 1
+------
+No record has been maintained for bugfixes previous to this.
+
+
+THANKS TO
+=========
+- Ilya Zakharevich for his critical testing.
+- Anna Chiara Bellini for putting an FTP server at my disposal.
+- Anyone not named that has assisted by beta testing and/or doing suggestions.
+
+
+BUGS
+====
+
+TO DO (?) (Extending port)
+==========================
+- Have Shift-Insert, Shift-Delete and Ctrl-Insert act on clipboard.
+  This means extending the "Tk Clipboard" only approach to use PRIMARY and/or
+  SECONDARY too. Just replacing CLIPBOARD with PRIMARY has Shift-Insert working.
+- Global Grab doesn't turn pointer into clock outside of dialog. Possible??
+- Make button 2 and 3 of the mouse switchable. To OS/2, button 2 is the right
+  mouse button and generates a WM_BUTTON2* message, 3 is an optional middle
+  mouse button (WM_BUTTON3*). For X, and thus XFree86 in an OS/2 Full Screen
+  session, button 2 is the ("always available") middle button and 3 the right.
+- Implement a "send", either via DDE or via Pipes/Queues?
+- Multithreading (dual-threading: one extra thread for the message queue to
+  stay responding to the system, coomunicating with the one that now exists
+  which might be computing for a longer time).
+- The list of occupied logical font IDs is a straight array. This method will
+  leave "holes" when freeing another font than the last one.
+  Solution: convert to a linked list or use Tcl's hash table mechanism.

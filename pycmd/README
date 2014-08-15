@@ -1,0 +1,38 @@
+
+This is just a little hack to get around the deficiencies of OS/2's
+"extproc" command for running python programs.  OS/2's "extproc" command is
+similar to the UNIX "#!" hack.  It allows you to execute programs written in
+any scripting language by specifying the interpreter in the first line. For
+example, if you wanted to run a python program by just entering it's name on
+the command line, you could call the program "myprogram.cmd" and put:
+
+	extproc python -x
+	
+in the first line of the file.  OS/2's CMD shell sees this when it tries to
+run the file as a batch file and then invokes the "python -x" command with
+the file name and all of the arguments as additional parameters.  The "-x"
+option tells the python interpreter to ignore the first line of the file.
+
+The problem with this is, unlike the UNIX "#!" hack, the "extproc" command
+doesn't give the interpreter the full path name of the file.  This means
+that you can only execute your script from the current directory!  Since
+that seemed very limiting to me, I wrote this program, which automatically
+includes the "-x" option and searches for the script in the current
+directory and then in the PATH.  It then calls Py_Main() with the complete
+path of the script so that it can be run from anywhere.
+
+So now, you can just use the following start line:
+
+	extproc pycmd
+
+to run your scripts from wherever you like.
+
+But wait, there's more!  Since I've also done a half-ass port of Tkinter to
+OS/2, pycmd also comes in a PM enabled flavor called "pmpycmd".  To run your
+Python Tkinter scripts, just put:
+
+	extproc pmpycmd
+
+in the first line (assuming that you have installed OS/2 Tkinter, of course)
+and you're all set.  For this to be any cooler, you'd have to be running
+UNIX.

@@ -1,0 +1,14 @@
+
+This file contains information on a memory error that occurs in the OS/2
+version of the Python interpreter.
+
+The Visual Age malloc() function returns NULL if it is asked to allocate a
+block of size 0.  To deal with this, it is necessary to add the following
+line to the "config.h" in the PC/os2vacpp directory of the python source tree:
+
+#define MALLOC_ZERO_RETURNS_NULL 1
+
+The lack of this will cause a MemoryError in certain operations, including
+copying an empty dictionary (something that the Tkinter code does quite
+frequently).  To find out if your distribution has this problem, type
+"{}.copy()" into the interpreter.  If you get a memory error, then it does.

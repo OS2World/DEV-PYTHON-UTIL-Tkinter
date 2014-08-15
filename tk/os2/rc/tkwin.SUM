@@ -1,0 +1,40 @@
+
+SMART Windows to OS/2 Resource Translation Version 1.00
+
+Copyright (c) 1993, 1994 One Up Corporation
+
+
+Start:  Saturday  07/13/1996  15:01:50
+
+Command line:
+smartrc -I../../../generic tkwin.rc
+
+I1003 Converting from code page <1004> to code page <850>
+
+G:\get\net\Tk-4.1a0.my\pTk\mTk\generic\patchlevel.h
+  Messages Output:
+    Informational:      0    Warning:      0    Error:      0
+
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.HHH
+  Messages Output:
+    Informational:      0    Warning:      0    Error:      0
+
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc
+  Converted file saved as <G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rcX>
+  Resources Processed:
+    ICON:               1
+    CURSOR:            77
+  Messages Output:
+    Informational:      1    Warning:     78    Error:      0
+
+TOTALS
+  Files Processed:      3
+  Files Converted:      1
+  Resources Processed:
+    ICON:               1
+    CURSOR:            77
+  Messages Output:
+    Informational:      2    Warning:     78    Error:      0
+
+
+Finish: Saturday  07/13/1996  15:01:51

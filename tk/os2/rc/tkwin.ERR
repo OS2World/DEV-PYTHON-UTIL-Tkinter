@@ -1,0 +1,89 @@
+
+SMART Windows to OS/2 Resource Translation Version 1.00
+
+Copyright (c) 1993, 1994 One Up Corporation
+
+
+Command line:
+smartrc -I../../../generic tkwin.rc
+
+I1003 Converting from code page <1004> to code page <850>
+
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(14:1) : W2005 Resource name <tk> assigned integer ID <0x1000> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(20:1) : W2005 Resource name <X_cursor> assigned integer ID <0x1001> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(21:1) : W2005 Resource name <arrow> assigned integer ID <0x1002> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(22:1) : W2005 Resource name <based_arrow_down> assigned integer ID <0x1003> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(23:1) : W2005 Resource name <based_arrow_up> assigned integer ID <0x1004> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(24:1) : W2005 Resource name <boat> assigned integer ID <0x1005> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(25:1) : W2005 Resource name <bogosity> assigned integer ID <0x1006> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(26:1) : W2005 Resource name <bottom_left_corner> assigned integer ID <0x1007> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(27:1) : W2005 Resource name <bottom_right_corner> assigned integer ID <0x1008> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(28:1) : W2005 Resource name <bottom_side> assigned integer ID <0x1009> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(29:1) : W2005 Resource name <bottom_tee> assigned integer ID <0x100A> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(30:1) : W2005 Resource name <box_spiral> assigned integer ID <0x100B> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(31:1) : W2005 Resource name <center_ptr> assigned integer ID <0x100C> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(32:1) : W2005 Resource name <circle> assigned integer ID <0x100D> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(33:1) : W2005 Resource name <clock> assigned integer ID <0x100E> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(34:1) : W2005 Resource name <coffee_mug> assigned integer ID <0x100F> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(35:1) : W2005 Resource name <cross> assigned integer ID <0x1010> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(36:1) : W2005 Resource name <cross_reverse> assigned integer ID <0x1011> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(37:1) : W2005 Resource name <crosshair> assigned integer ID <0x1012> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(38:1) : W2005 Resource name <diamond_cross> assigned integer ID <0x1013> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(39:1) : W2005 Resource name <dot> assigned integer ID <0x1014> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(40:1) : W2005 Resource name <dotbox> assigned integer ID <0x1015> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(41:1) : W2005 Resource name <double_arrow> assigned integer ID <0x1016> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(42:1) : W2005 Resource name <draft_large> assigned integer ID <0x1017> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(43:1) : W2005 Resource name <draft_small> assigned integer ID <0x1018> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(44:1) : W2005 Resource name <draped_box> assigned integer ID <0x1019> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(45:1) : W2005 Resource name <exchange> assigned integer ID <0x101A> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(46:1) : W2005 Resource name <fleur> assigned integer ID <0x101B> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(47:1) : W2005 Resource name <gobbler> assigned integer ID <0x101C> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(48:1) : W2005 Resource name <gumby> assigned integer ID <0x101D> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(49:1) : W2005 Resource name <hand1> assigned integer ID <0x101E> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(50:1) : W2005 Resource name <hand2> assigned integer ID <0x101F> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(51:1) : W2005 Resource name <heart> assigned integer ID <0x1020> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(52:1) : W2005 Resource name <xicon> assigned integer ID <0x1021> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(53:1) : W2005 Resource name <iron_cross> assigned integer ID <0x1022> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(54:1) : W2005 Resource name <left_ptr> assigned integer ID <0x1023> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(55:1) : W2005 Resource name <left_side> assigned integer ID <0x1024> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(56:1) : W2005 Resource name <left_tee> assigned integer ID <0x1025> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(57:1) : W2005 Resource name <leftbutton> assigned integer ID <0x1026> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(58:1) : W2005 Resource name <ll_angle> assigned integer ID <0x1027> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(59:1) : W2005 Resource name <lr_angle> assigned integer ID <0x1028> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(60:1) : W2005 Resource name <man> assigned integer ID <0x1029> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(61:1) : W2005 Resource name <middlebutton> assigned integer ID <0x102A> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(62:1) : W2005 Resource name <mouse> assigned integer ID <0x102B> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(63:1) : W2005 Resource name <pencil> assigned integer ID <0x102C> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(64:1) : W2005 Resource name <pirate> assigned integer ID <0x102D> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(65:1) : W2005 Resource name <plus> assigned integer ID <0x102E> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(66:1) : W2005 Resource name <question_arrow> assigned integer ID <0x102F> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(67:1) : W2005 Resource name <right_ptr> assigned integer ID <0x1030> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(68:1) : W2005 Resource name <right_side> assigned integer ID <0x1031> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(69:1) : W2005 Resource name <right_tee> assigned integer ID <0x1032> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(70:1) : W2005 Resource name <rightbutton> assigned integer ID <0x1033> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(71:1) : W2005 Resource name <rtl_logo> assigned integer ID <0x1034> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(72:1) : W2005 Resource name <sailboat> assigned integer ID <0x1035> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(73:1) : W2005 Resource name <sb_down_arrow> assigned integer ID <0x1036> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(74:1) : W2005 Resource name <sb_h_double_arrow> assigned integer ID <0x1037> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(75:1) : W2005 Resource name <sb_left_arrow> assigned integer ID <0x1038> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(76:1) : W2005 Resource name <sb_right_arrow> assigned integer ID <0x1039> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(77:1) : W2005 Resource name <sb_up_arrow> assigned integer ID <0x103A> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(78:1) : W2005 Resource name <sb_v_double_arrow> assigned integer ID <0x103B> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(79:1) : W2005 Resource name <shuttle> assigned integer ID <0x103C> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(80:1) : W2005 Resource name <sizing> assigned integer ID <0x103D> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(81:1) : W2005 Resource name <spider> assigned integer ID <0x103E> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(82:1) : W2005 Resource name <spraycan> assigned integer ID <0x103F> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(83:1) : W2005 Resource name <star> assigned integer ID <0x1040> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(84:1) : W2005 Resource name <target> assigned integer ID <0x1041> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(85:1) : W2005 Resource name <tcross> assigned integer ID <0x1042> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(86:1) : W2005 Resource name <top_left_arrow> assigned integer ID <0x1043> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(87:1) : W2005 Resource name <top_left_corner> assigned integer ID <0x1044> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(88:1) : W2005 Resource name <top_right_corner> assigned integer ID <0x1045> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(89:1) : W2005 Resource name <top_side> assigned integer ID <0x1046> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(90:1) : W2005 Resource name <top_tee> assigned integer ID <0x1047> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(91:1) : W2005 Resource name <trek> assigned integer ID <0x1048> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(92:1) : W2005 Resource name <ul_angle> assigned integer ID <0x1049> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(93:1) : W2005 Resource name <umbrella> assigned integer ID <0x104A> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(94:1) : W2005 Resource name <ur_angle> assigned integer ID <0x104B> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(95:1) : W2005 Resource name <watch> assigned integer ID <0x104C> in HHH file
+G:\get\net\Tk-4.1a0.my\pTk\mTk\open32\h\rc\tkwin.rc(96:1) : W2005 Resource name <xterm> assigned integer ID <0x104D> in HHH file

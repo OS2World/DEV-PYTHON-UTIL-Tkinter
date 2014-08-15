@@ -1,0 +1,126 @@
+
+Tkinter for OS/2 V0.3
+---------------------
+
+This is cheap, badly hacked combination of Tcl/Tk and Tkinter intended to
+solve a particular problem: getting a version of Tkinter up and running
+under OS/2.
+
+All of the credit goes to Illya Vaes, who ported Tcl/Tk to OS/2 under EMX,
+Steen Lumholt, author of Tkinter, and SUN Microsystems for creating and
+publishing the source for Tcl/Tk.  All I've done is hack up their fine work.
+
+In my own defense, I did this because I really needed a version of Tkinter
+for OS/2 and had very limited time in which to produce it.
+
+_tkinter.c would have worked verbatim if I had been content with limited
+support for multithreading under OS/2.  I had to do evil things to it to
+keep the various message queue wait conditions from blocking all of the
+background threads.  Anyhow, you may run background threads to your hearts
+content as long as you limit your Tk GUI calls to the primary thread.
+Attempts to do otherwise should result in an error.
+
+To communicate to the Tk thread, you may use Tcl global variables.  The
+global variable access functions are not semaphore protected, so they can
+be accessed from any thread.  I'm not sure that this is entirely safe, but
+I believe that it has a extremely low probability of error: in other words,
+don't use this to control any life support equipment.
+
+pycmd and pmpycmd
+-----------------
+
+These are two utility programs that attempt to deal with a flaw in the
+OS/2 extproc command.  They basically run both run the Python interpreter,
+but look for the file specified on the command line in the path.  "pmpycmd"
+is just the PM-capable version of "pycmd".  See the "pycmd" directory or
+README.pycmd for details.
+
+Installing the Binaries
+-----------------------
+
+IMPORTANT:  You'll need the Visual Age compiled Python OS/2 1.5.1 port,
+not the EMX 1.4 version.  This is not on Hobbes as of the last time I
+looked.  The binaries are available from Jeff Rush's Python OS/2 page at:
+	
+	http://warped.cswnet.com/~jrush/python_os2/index.html
+
+Please see the MEMERROR file for information on a bug in this release that is
+particularly relevant to Tkinter.
+
+If you just want to run Tkinter programs, do the following:
+
+1) Copy tcl75va.dll and tk41va.dll to somewhere in your LIBPATH
+2) Copy _tkinter.dll to your PYTHONHOME directory (if you have not set
+	PYTHONHOME, now would be a good time to do so, since OS/2 Python seems
+	to want to load its binary modules from this directory).
+3) Copy pmpython.exe to somewhere on your path (you probably want to put it
+	in the same place where you have python.exe).
+4)	Copy the contents of the "lib" directory somewhere.  Set the environment
+	variable "TCL_LIBRARY" to the location of the "tcl" subdirectory, and
+	set the environment variable "TK_LIBRARY" to the location of the "tk"
+	subdirectory.
+5) If you plan on using pycmd and pmpycmd, copy pycmd.exe and pmpycmd.exe
+	to somewhere in your path (again, probably the same place as python.exe).
+
+You'll need to use "pmpython" instead of just plain "python" to run your
+Tkinter Python programs, since they need to be run from a PM application.
+
+Compiling the Source
+--------------------
+
+First of all, you'll need an HPFS file system (Tcl and Tk use long file
+names).  If you have a version of "makedepend" installed (I got mine from
+Hobbes, the executable was called "mdep"), you may want to set its name in
+the root makefile and then run "nmake deps" to make the dependencies.  Be
+warned: makedepend will not find many of the UNIX specific files and it
+will take a really long time spitting out warnings.
+
+Run an "nmake" with no arguments in the root directory to build everything,
+"nmake NODEBUG=1" will build binaries without debug information.  "nmake
+DYNAMIC=1" will build binaries dynamically linked to the Visual Age C
+libraries (you may use this in conjunction with NODEBUG=1).  "nmake
+clean" will delete all of the generated files, and "nmake clean_targets"
+will delete all of the target DLLs.
+
+I seriously bastardized the Tcl and Tk source trees in the course of setting
+all of this stuff up, so don't expect things to be where they're supposed to
+be.
+
+The makefiles generate versions of "tclsh" and "wish".  These exist mainly
+for testing purposes, and are seriously flawed in some respects.  In
+particular, I encourage you not to try to use the "exec" command from either
+of them, as this will completely lock up your system.  Again, my motive for
+doing this was to get Tkinter up under OS/2.  If you want to write Tcl/Tk
+code, use Illya Vaes' original EMX port.
+
+Support
+-------
+
+As this is very much a "spare time" effort for me, and "spare time" is not
+something I have a lot of these days, I can't really provide this package
+with the kind of support it deserves.  If there's anybody out there who
+cares about it enough to take ownership of it, let me know.
+
+If you experience any sort of problems, I suggest that you try to track them
+down yourself.  If they turn out to be problems associated with any of the 
+underlying systems, you may wish to contact the owners of those systems.
+
+You may also contact me directly regarding bugs or improvements, but I can't
+guarantee that I will do anything about them.  If it's something simple,
+I'll see what I can do.
+
+Michael Muller
+proteus@cloud9.net
+
+Version History
+---------------
+
+0.2
+	Initial public release
+
+0.3
+	Fixed library initialization code: made _DLL_InitTerm "_System", 
+	changed makefiles so that the libraries can be linked either statically
+	or dynamically with the Visual Age C libraries.
+	
+	Added Tcl & Tk library files to lib subdirectory.
